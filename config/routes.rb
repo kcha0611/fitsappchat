@@ -3,11 +3,14 @@ Rails.application.routes.draw do
   get '/signup' => 'users#new'
   post '/users' => 'users#create'
 
-  get '/trainer/signup' => 'trainers#new'
-  post '/users' => 'trainers#create'
-
   get '/login' => 'sessions#new'
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
+
+  resources :chats, only:[:new, :create], :path => 'chats'
+
+  resources :users do
+    resources :chats, only: [:index, :show]
+  end
 
 end

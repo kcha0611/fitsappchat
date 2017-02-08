@@ -10,8 +10,9 @@ class ChatsController < ApplicationController
   def create
     @chat = Chat.new(chat_params)
     @chat.user_id = current_user.id
+
     if @chat.save
-      redirect_to "/chats/#{@chat.id}"
+      redirect_to "/users/#{current_user.id}/chats"
     else
       flash.now[:errors] = @chat.errors.full_messages
       render :new
@@ -19,7 +20,17 @@ class ChatsController < ApplicationController
   end
 
   def index
-      @messages = Chat.where(user_id: current_user.id)
+    if current_user.role == "Member"
+      @messages = Chat.where(recipient: "Trainer")
+    else
+      @messages = Chat.where(recipient: "Member")
+    end
+  end
+
+  private
+
+  def chat_params
+    params.require(:chat).permit(:subject, :body, :recipient, :trainer_id, :user_id)
   end
 
 end

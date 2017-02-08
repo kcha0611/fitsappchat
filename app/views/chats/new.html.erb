@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<div>
+  <h1>Chat</h1>
+  <%= form_for :chat, url: '/chats' do |f|%>
+  <%= render partial: 'layouts/errors' %>
+  <p>Subject: <%= f.text_field :subject%></p>
+  <p>Body: <%= f.text_field :body%></p>
+  <p>Member<%= f.radio_button :recipient, "Member" %></p>
+  <p>Trainer<%= f.radio_button :recipient, "Trainer" %></p>
+  <%= f.submit "Chat" %>
+  <% end %>
+</div>

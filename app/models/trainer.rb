@@ -3,5 +3,5 @@ class Trainer < ApplicationRecord
   validates :email, presence: true, uniqueness: true
   validates :password, length: {minimum: 6, allow_nil: true}
 
-  has_many: chats
+  has_many :chats
 end

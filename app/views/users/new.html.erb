@@ -1,8 +1,7 @@
 <!DOCTYPE html>
 <div class="signup-wrap">
   <div class="inner-signup-wrap">
-    <h1 class="signup-title">Sign Up as a User!</h1>
-    <a>Want to be a trainer? Click <a href="/trainer/signup">here</a></a>
+    <h1 class="signup-title">Sign Up Today!</h1>
     <a>Already a member? Login <a href="/login">here</a></a>
     <%= render partial: "layouts/errors" %>
     <div class="form-wrap"><%= form_for :user, url: '/users' do |f| %>
@@ -10,6 +9,8 @@
           <p><%= f.text_field :last_name, placeholder: "Last Name" %></p>
           <p><%= f.email_field :email, placeholder: "Email" %></p>
           <p><%= f.password_field :password, placeholder: "Password" %></p>
+          <p>Member<%= f.radio_button :role, "Member" %></p>
+          <p>Trainer<%= f.radio_button :role, "Trainer" %></p>
           <div class="submit-btn-wrap"><%= f.submit "Submit", class: "submit-btn-signup"%></div>
         <% end %>
     </div>

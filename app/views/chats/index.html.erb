@@ -1,0 +1,12 @@
+<!DOCTYPE html>
+<div>
+  <%@messages.each do |message| %>
+  <% message.user.first_name%>
+  <%=message.subject%>
+  <%=message.body%>
+  <% end %>
+  <p>
+    WELCOME <%=current_user.role%>
+  </p>
+  <a href="/chats/new">Chat</a>
+</div>

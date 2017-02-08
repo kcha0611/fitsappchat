@@ -2,7 +2,7 @@
 <div class="login-wrap">
   <div class="inner-login-wrap">
   <h1>Log In </h1>
-  <a>Havent signed up yet? Click <a href="/signup">here</a> to be a user and <a href="/trainer/signup">here</a> to be a trainer</a>
+  <a>Havent signed up yet? Click <a href="/signup">here</a> to sign up! </a>
     <%= form_tag '/login' do %>
     <%= render partial: 'layouts/errors' %>
     <p class="email-login">Email: <%= text_field_tag :email%></p>
