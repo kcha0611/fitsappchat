@@ -13,4 +13,6 @@ Rails.application.routes.draw do
     resources :chats, only: [:index, :show]
   end
 
+  root 'main#index'
+
 end

@@ -3,8 +3,8 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      session[:session_id] = @user.id
-      redirect_to "/users/#{@user.id}/chats"
+      session[:user_id] = @user.id
+      redirect_to "/"
     else
       flash.now[:errors] = @user.errors.full_messages
       render :new

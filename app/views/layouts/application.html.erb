@@ -9,6 +9,20 @@
   </head>
 
   <body>
+    <% if current_user %>
+      <div class="logout-btn-wrap"><%= link_to "Logout", '/logout', class: "logout-btn" %></div>
+    <% end %>
   <%= yield %>
+  <script>
+  $(document).ready(function() {
+    $("#message-wrap").hide();
+    $("#chat-form-btn").hide();
+    $("#chat-btn").click(function( event ) {
+      $("#message-wrap").show();
+      $("#chat-form-btn").show();
+      event.preventDefault();
+    });
+  });
+  </script>
   </body>
 </html>

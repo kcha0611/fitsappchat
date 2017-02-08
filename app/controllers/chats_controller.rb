@@ -1,6 +1,5 @@
 class ChatsController < ApplicationController
-  before_action :require_current_user, only: [:new, :create]
-
+  before_action :require_current_user, only: [:new, :create, :index]
   def new
     if current_user.nil?
       redirect_to '/login'
@@ -21,9 +20,9 @@ class ChatsController < ApplicationController
 
   def index
     if current_user.role == "Member"
-      @messages = Chat.where(recipient: "Trainer")
-    else
       @messages = Chat.where(recipient: "Member")
+    else
+      @messages = Chat.where(recipient: "Trainer")
     end
   end
 
