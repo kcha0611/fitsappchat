@@ -1,0 +1,17 @@
+<!DOCTYPE html>
+<div class="signup-wrap">
+  <div class="inner-signup-wrap">
+    <h1 class="signup-title">Sign Up as a Trainer!</h1>
+    <a>Want to be a User? Click <a href="/signup">here</a></a>
+    <a>Already a member? Login <a href="/login">here</a></a>
+    <%= render partial: "layouts/errors" %>
+    <div class="form-wrap"><%= form_for :user, url: '/users' do |f| %>
+          <p><%= f.text_field :first_name, placeholder: "First Name" %></p>
+          <p><%= f.text_field :last_name, placeholder: "Last Name" %></p>
+          <p><%= f.email_field :email, placeholder: "Email" %></p>
+          <p><%= f.password_field :password, placeholder: "Password" %></p>
+          <div class="submit-btn-wrap"><%= f.submit "Submit", class: "submit-btn-signup"%></div>
+        <% end %>
+    </div>
+  </div>
+</div>
