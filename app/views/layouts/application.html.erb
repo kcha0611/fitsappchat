@@ -11,9 +11,9 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <script src="https://npmcdn.com/tether@1.2.4/dist/js/tether.min.js"></script>
   <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
-  <body>
+  <body id="main-body">
     <% if current_user %>
-      <div class="logout-btn-wrap"><%= link_to "Logout", '/logout', class: "logout-btn" %></div>
+      <%= button_to "Logout", '/logout', class: "btn btn-success", id: "logout-btn"%>
     <% end %>
   <%= yield %>
   <!-- <script>

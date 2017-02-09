@@ -1,13 +1,23 @@
 <!DOCTYPE html>
 <div>
-  <p>
+  <h1 class="greeting-header">
     Welcome <%=current_user.first_name.capitalize%></br> Role: <%=current_user.role%>
-  </p>
+  </h1>
+  <h2>Questions for <%=current_user.role%>s</h2>
   <div id="message-wrap">
     <%@messages.each do |message| %>
-    Title: <%=message.subject%></br>
-    Body: <%=message.body%></br>
+    <div class="inner-message-wrap">
+      <h3 class="message-title"><%=message.subject%></h3></br>
+      Body: <%=message.body%></br>
+      Time created: <p class="time-created"><%=time_ago_in_words(Time.now)%></p>
+      <div class="btn-group">
+        <%= link_to "Edit", edit_chat_path(message), :method => :get, class: 'btn btn-success', id: 'edit-btn'%>
+        <%= link_to "Delete", message, :method => :delete, class: 'btn btn-primary', id: 'delete-btn'%>
+      </div>
+    </div>
+    <% if current_user.role == "Admin" %>
+    <% end %>
     <% end %>
   </div>
-  <a href="/chats/new" id="chat-form-btn">New Chat</a>
+  <a href="/chats/new" id="chat-form-btn" class="btn btn-danger">New Chat</a>
 </div>

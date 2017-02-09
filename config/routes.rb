@@ -7,12 +7,14 @@ Rails.application.routes.draw do
   post '/login' => 'sessions#create'
   get '/logout' => 'sessions#destroy'
 
-  resources :chats, only:[:new, :create], :path => 'chats'
+  resources :chats
 
   resources :users do
     resources :chats, only: [:index, :show]
   end
 
-  root 'main#index'
+  root 'sessions#new'
+
+  resources :main, only:[:index], :path => 'main'
 
 end
