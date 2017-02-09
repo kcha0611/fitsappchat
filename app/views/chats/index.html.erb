@@ -1,14 +1,13 @@
 <!DOCTYPE html>
 <div>
+  <p>
+    Welcome <%=current_user.first_name.capitalize%></br> Role: <%=current_user.role%>
+  </p>
   <div id="message-wrap">
     <%@messages.each do |message| %>
-    <%=message.subject%>
-    <%=message.body%>
+    Title: <%=message.subject%></br>
+    Body: <%=message.body%></br>
     <% end %>
   </div>
-  <p>
-    WELCOME <%=current_user.role%>
-  </p>
-  <a href="" id="chat-btn">Chat</a>
   <a href="/chats/new" id="chat-form-btn">New Chat</a>
 </div>
