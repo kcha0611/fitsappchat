@@ -63,7 +63,7 @@ h2 {
   position: absolute;
   border-radius: 0px;
   margin-left: 10px;
-  /*width: 100%;*/
+  z-index: 100;
 }
 
 ul.errors {
