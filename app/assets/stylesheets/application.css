@@ -14,10 +14,13 @@
  *= require_self
  */
 img {
-  width: 71.5%;
+  /*width: 71.5%;
   margin-left: 14%;
-  margin-right: 17%;
-  height: 800px;
+  margin-right: 17%;*/
+  /*height: 800px;*/
+  width: 80%;
+  margin-left: 10%;
+  margin-top: 0.8%;
 }
 
 #main-body {
@@ -85,4 +88,5 @@ ul.errors {
 #chat-form-btn {
   margin-left: 10px;
   border-radius: 0px;
+  margin-bottom: 10px;
 }

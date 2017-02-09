@@ -13,7 +13,7 @@
   <script src="https://npmcdn.com/bootstrap@4.0.0-alpha.5/dist/js/bootstrap.min.js"></script>
   <body id="main-body">
     <% if current_user %>
-      <%= button_to "Logout", '/logout', class: "btn btn-success", id: "logout-btn"%>
+      <%= button_to "Logout", '/logout', class: "btn btn-success", id: "logout-btn", method: :get%>
     <% end %>
   <%= yield %>
   <!-- <script>

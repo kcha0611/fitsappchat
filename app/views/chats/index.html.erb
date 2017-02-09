@@ -9,10 +9,12 @@
     <div class="inner-message-wrap">
       <h3 class="message-title"><%=message.subject%></h3></br>
       Body: <%=message.body%></br>
-      Time created: <p class="time-created"><%=time_ago_in_words(Time.now)%></p>
+      Time created: <p class="time-created"><%=time_ago_in_words(message.created_at)%> ago</p>
       <div class="btn-group">
-        <%= link_to "Edit", edit_chat_path(message), :method => :get, class: 'btn btn-success', id: 'edit-btn'%>
-        <%= link_to "Delete", message, :method => :delete, class: 'btn btn-primary', id: 'delete-btn'%>
+        <% if current_user.role == "Admin" %>
+          <%= link_to "Edit", edit_chat_path(message), :method => :get, class: 'btn btn-success', id: 'edit-btn'%>
+          <%= link_to "Delete", message, :method => :delete, class: 'btn btn-primary', id: 'delete-btn'%>
+        <% end %>
       </div>
     </div>
     <% if current_user.role == "Admin" %>
